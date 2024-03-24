@@ -6,7 +6,7 @@ import {
   $,
   useSignal,
 } from "@builder.io/qwik";
-import { Book } from "~/models/book";
+import { Book } from "~/models/Book";
 import {
   addBook,
   deleteBookByIbsn,
@@ -23,7 +23,7 @@ export const BooksList = component$(() => {
     books: [],
   });
 
-  const form = useStore({
+  const form: Book = useStore({
     ibsn: "",
     title: "",
     published: 0,

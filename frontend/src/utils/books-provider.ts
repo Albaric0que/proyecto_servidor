@@ -1,6 +1,6 @@
 // Funciones de acceso a la API de usuarios.
 
-import { Book } from "~/models/book";
+import { Book } from "~/models/Book";
 
 // Obtiene libro por IBSN
 export const getBookByIbsn = async (ibsn: string, book: Book) => {
