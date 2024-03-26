@@ -28,8 +28,11 @@ export const getBooks = async (): Promise<Book[]> => {
   return <Book[]>(<unknown>null);
 };
 
-// Obtiene todos los libros por Editorial  MÉTODO A MODIFICAR !!!!
-export const getBooksByEditorial = async (editorial: string, book: Book) => {
+// Obtiene todos los libros por Editorial
+export const getBooksByEditorial = async (
+  editorial: string,
+  editorialBooks: Book,
+) => {
   try {
     const response = await fetch(
       `http://localhost:8000/books/editorial/${editorial}`,
@@ -40,11 +43,11 @@ export const getBooksByEditorial = async (editorial: string, book: Book) => {
     console.error(error);
   }
 
-  return <Book[]>(<unknown>null);
+  return editorialBooks;
 };
 
-// Obtiene todos los libros por Género   método a modificar !!!!
-export const getBooksByGenre = async (genre: string, book: Book) => {
+// Obtiene todos los libros por Género
+export const getBooksByGenre = async (genre: string, genreBooks: Book) => {
   try {
     const response = await fetch(`http://localhost:8000/books/genre/${genre}`);
     const genreBooks = response.json();
@@ -53,11 +56,14 @@ export const getBooksByGenre = async (genre: string, book: Book) => {
     console.error(error);
   }
 
-  return <Book[]>(<unknown>null);
+  return genreBooks;
 };
 
 // Obtiene todos los libros por Autor   método a modificar !!!!
-export const getBooksByAuthor = async (author_name: string, book: Book) => {
+export const getBooksByAuthor = async (
+  author_name: string,
+  authorBooks: Book,
+) => {
   try {
     const response = await fetch(
       `http://localhost:8000/books/author/${author_name}`,
@@ -68,7 +74,7 @@ export const getBooksByAuthor = async (author_name: string, book: Book) => {
     console.error(error);
   }
 
-  return <Book[]>(<unknown>null);
+  return authorBooks;
 };
 
 // Añade un libro.
