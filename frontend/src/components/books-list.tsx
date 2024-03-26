@@ -23,7 +23,7 @@ export const BooksList = component$(() => {
     books: [],
   });
 
-  const form: Book = useStore({
+  const form = useStore<Book>({
     ibsn: "",
     title: "",
     published: 0,
