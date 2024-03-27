@@ -38,4 +38,30 @@
   .button-book-highlighted {
     @apply mr-3 mt-4 w-52 bg-alanturing-400;
   }
+
+  .sub-forms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .sub-forms > .sub-form {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .sub-forms > .sub-form > form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sub-forms > .sub-form > form > input {
+    display: inline-block;
+    margin-bottom: 1rem;
+    border: solid 1px #206ab2;
+    border-radius: 10px;
+  }
 }

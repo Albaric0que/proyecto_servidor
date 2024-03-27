@@ -282,7 +282,7 @@ export const BooksList = component$(() => {
                 showAuthorForm.value = !showAuthorForm.value;
               }}
             >
-              <i class="fa-solid fa-masks-theater pr-2"></i>
+              <i class="fa-regular fa-user pr-2"></i>
               Por Autor
             </button>
 
