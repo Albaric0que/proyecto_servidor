@@ -36,7 +36,11 @@ export const BooksList = component$(() => {
 
   const oldIbsn = useSignal("");
 
-  const usersByAge = useSignal("Todos");
+  const showEditorialForm = useSignal(false);
+
+  const showGenreForm = useSignal(false);
+
+  const showAuthorForm = useSignal(false);
 
   useTask$(async () => {
     console.log("Desde useTask");
@@ -84,6 +88,8 @@ export const BooksList = component$(() => {
     await deleteBookByIbsn(ibsn);
     store.books = await getBooks();
   });
+
+  const handleFormSubmit = $(() => {});
 
   return (
     <div class="flex w-full justify-center">
@@ -209,6 +215,89 @@ export const BooksList = component$(() => {
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="sub-forms">
+          <div class="sub-form">
+            {/* Botón para mostrar/ocultar el formulario editorial */}
+            <button
+              class={
+                showEditorialForm.value === false
+                  ? "button-book-highlighted"
+                  : "button-book"
+              }
+              onClick$={() => {
+                showEditorialForm.value = !showEditorialForm.value;
+              }}
+            >
+              <i class="fa-solid fa-truck-fast pr-2"></i>
+              Por Editorial
+            </button>
+            {/* Formulario obtener libros por editorial */}
+            <form
+              style={`visibility: ${showEditorialForm.value === false ? "hidden" : "visible"}`}
+              onSubmit$={handleFormSubmit}
+            >
+              <input type="text" placeholder="Nombre de la Editorial" />
+              <button class="bg-green-600" type="submit">
+                <i class="fa-solid fa-check"></i>
+                Aceptar
+              </button>
+            </form>
+          </div>
+          {/* Botón mostrar/ocultar formulario género */}
+          <div class="sub-form">
+            <button
+              class={
+                showGenreForm.value === false
+                  ? "button-book-highlighted"
+                  : "button-book"
+              }
+              onClick$={() => {
+                showGenreForm.value = !showGenreForm.value;
+              }}
+            >
+              <i class="fa-solid fa-masks-theater pr-2"></i>
+              Por Género
+            </button>
+            {/* Formulario obtener libros por género */}
+            <form
+              style={`visibility: ${showGenreForm.value === false ? "hidden" : "visible"}`}
+              onSubmit$={handleFormSubmit}
+            >
+              <input type="text" placeholder="Nombre del Género" />
+              <button class="bg-green-600" type="submit">
+                <i class="fa-solid fa-check"></i>
+                Aceptar
+              </button>
+            </form>
+          </div>
+          <div class="sub-form">
+            <button
+              class={
+                showAuthorForm.value === false
+                  ? "button-book-highlighted"
+                  : "button-book"
+              }
+              onClick$={() => {
+                showAuthorForm.value = !showAuthorForm.value;
+              }}
+            >
+              <i class="fa-solid fa-masks-theater pr-2"></i>
+              Por Autor
+            </button>
+
+            {/* Formulario obtener libros por autor */}
+            <form
+              style={`visibility: ${showAuthorForm.value === false ? "hidden" : "visible"}`}
+              onSubmit$={handleFormSubmit}
+            >
+              <input type="text" placeholder="Nombre del Autor" />
+              <button class="bg-green-600" type="submit">
+                <i class="fa-solid fa-check"></i>
+                Aceptar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
