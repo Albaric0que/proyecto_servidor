@@ -42,15 +42,7 @@ export const BooksList = component$(() => {
 
   const showAuthorForm = useSignal(false);
 
-  /*  const editorialInput = useSignal("");
-
-  const genreInput = useSignal("");
-
-  const authorInput = useSignal(""); */
-
-  /* useTask$(async () => {
-    console.log("Desde useTask");
-  }); */
+  const activeForm = useSignal("");
 
   useVisibleTask$(async () => {
     console.log("Desde useVisibleTask");
@@ -69,19 +61,23 @@ export const BooksList = component$(() => {
 
   const handleFormSubmit = $(async (event: any) => {
     event.preventDefault(); // evita el comportamiento por defecto
-
+    console.log("¿hola?");
     const { editorial, genre, author_name } = form;
 
-    if (showEditorialForm.value === true) {
-      await getBooksByEditorial(editorial, form);
-      store.books = await getBooksByEditorial(editorial, form);
-    } else if (showGenreForm.value === true) {
-      await getBooksByGenre(genre, form);
-      store.books = await getBooksByGenre(genre, form);
-    } else if (showAuthorForm.value === true) {
-      await getBooksByAuthor(author_name, form);
-      store.books = await getBooksByAuthor(author_name, form);
+    let newBooks = [];
+
+    if (activeForm.value === "editorial") {
+      newBooks = await getBooksByEditorial(editorial, form);
+    } else if (activeForm.value === "genre") {
+      newBooks = await getBooksByGenre(genre, form);
+    } else if (activeForm.value === "author_name") {
+      newBooks = await getBooksByAuthor(author_name, form);
+      console.log(store.books);
     }
+
+    // Actualiza el estado con los nuevos libros
+    store.books = newBooks;
+    console.log(newBooks);
   });
 
   const handleInputChange = $((event: any) => {
@@ -247,6 +243,7 @@ export const BooksList = component$(() => {
                   : "button-book"
               }
               onClick$={() => {
+                activeForm.value = "editorial";
                 showEditorialForm.value = !showEditorialForm.value;
               }}
             >
@@ -280,6 +277,7 @@ export const BooksList = component$(() => {
                   : "button-book"
               }
               onClick$={() => {
+                activeForm.value = "genre";
                 showGenreForm.value = !showGenreForm.value;
               }}
             >
@@ -312,6 +310,7 @@ export const BooksList = component$(() => {
                   : "button-book"
               }
               onClick$={() => {
+                activeForm.value = "author_name";
                 showAuthorForm.value = !showAuthorForm.value;
               }}
             >
