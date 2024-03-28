@@ -42,9 +42,15 @@ export const BooksList = component$(() => {
 
   const showAuthorForm = useSignal(false);
 
-  useTask$(async () => {
+  /*  const editorialInput = useSignal("");
+
+  const genreInput = useSignal("");
+
+  const authorInput = useSignal(""); */
+
+  /* useTask$(async () => {
     console.log("Desde useTask");
-  });
+  }); */
 
   useVisibleTask$(async () => {
     console.log("Desde useVisibleTask");
@@ -58,6 +64,23 @@ export const BooksList = component$(() => {
     } else {
       await updateBook(oldIbsn.value, form);
       addOrModify.value = "Añadir";
+    }
+  });
+
+  const handleFormSubmit = $(async (event: any) => {
+    event.preventDefault(); // evita el comportamiento por defecto
+
+    const { editorial, genre, author_name } = form;
+
+    if (showEditorialForm.value === true) {
+      await getBooksByEditorial(editorial, form);
+      store.books = await getBooksByEditorial(editorial, form);
+    } else if (showGenreForm.value === true) {
+      await getBooksByGenre(genre, form);
+      store.books = await getBooksByGenre(genre, form);
+    } else if (showAuthorForm.value === true) {
+      await getBooksByAuthor(author_name, form);
+      store.books = await getBooksByAuthor(author_name, form);
     }
   });
 
@@ -88,8 +111,6 @@ export const BooksList = component$(() => {
     await deleteBookByIbsn(ibsn);
     store.books = await getBooks();
   });
-
-  const handleFormSubmit = $(() => {});
 
   return (
     <div class="flex w-full justify-center">
@@ -237,7 +258,13 @@ export const BooksList = component$(() => {
               style={`visibility: ${showEditorialForm.value === false ? "hidden" : "visible"}`}
               onSubmit$={handleFormSubmit}
             >
-              <input type="text" placeholder="Nombre de la Editorial" />
+              <input
+                type="text"
+                placeholder="Nombre de la Editorial"
+                name="editorial"
+                value={form.editorial}
+                onInput$={handleInputChange}
+              />
               <button class="bg-green-600" type="submit">
                 <i class="fa-solid fa-check"></i>
                 Aceptar
@@ -264,7 +291,13 @@ export const BooksList = component$(() => {
               style={`visibility: ${showGenreForm.value === false ? "hidden" : "visible"}`}
               onSubmit$={handleFormSubmit}
             >
-              <input type="text" placeholder="Nombre del Género" />
+              <input
+                type="text"
+                placeholder="Nombre del Género"
+                name="genre"
+                value={form.genre}
+                onInput$={handleInputChange}
+              />
               <button class="bg-green-600" type="submit">
                 <i class="fa-solid fa-check"></i>
                 Aceptar
@@ -291,7 +324,13 @@ export const BooksList = component$(() => {
               style={`visibility: ${showAuthorForm.value === false ? "hidden" : "visible"}`}
               onSubmit$={handleFormSubmit}
             >
-              <input type="text" placeholder="Nombre del Autor" />
+              <input
+                type="text"
+                placeholder="Nombre del Autor"
+                name="author_name"
+                value={form.author_name}
+                onInput$={handleInputChange}
+              />
               <button class="bg-green-600" type="submit">
                 <i class="fa-solid fa-check"></i>
                 Aceptar

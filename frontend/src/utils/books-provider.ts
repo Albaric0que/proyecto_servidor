@@ -59,7 +59,7 @@ export const getBooksByGenre = async (genre: string, genreBooks: Book) => {
   return genreBooks;
 };
 
-// Obtiene todos los libros por Autor   método a modificar !!!!
+// Obtiene todos los libros por Autor
 export const getBooksByAuthor = async (
   author_name: string,
   authorBooks: Book,
