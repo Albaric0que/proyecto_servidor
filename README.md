@@ -8,12 +8,11 @@
     <li>The user must be able to filter books by genre, editorial, and author</li>
   </ul>
 
-<h2>2. Developer</h2>
+## 2. Developer
 
-  <h3>Yours trully:</h3>
-  <div>
-    [Alba Rus](https://github.com/Albaric0que) 
-  </div>
+  ### Yours trully:
+  
+   [Alba Rus](https://github.com/Albaric0que)
   
   <h2>4. Project Demo</h2>
   <p>In construction 👩🏼‍🔧</p>
