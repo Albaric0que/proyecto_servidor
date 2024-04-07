@@ -118,7 +118,7 @@ export const BooksList = component$(() => {
     <div class="body flex w-full justify-center">
       <div>
         <div>
-          <table>
+          <table class="table-scroll">
             <thead>
               <tr>
                 <th class="title">IBSN</th>
@@ -223,7 +223,7 @@ export const BooksList = component$(() => {
                   </td>
                   <td>
                     <span
-                      class="button bg-buttons-delete"
+                      class="button bg-buttons-delete text-black"
                       style={`visibility: ${addOrModify.value === "Añadir" ? "hidden" : "visible"}`}
                       onClick$={() => {
                         addOrModify.value = "Añadir";

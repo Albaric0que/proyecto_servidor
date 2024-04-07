@@ -20,6 +20,27 @@
     @apply bg-books-400 border-separate border-spacing-2 rounded-md p-2;
   }
 
+  /* Scroll */
+  table.table-scroll {
+    overflow-x: auto;
+  }
+
+  /* Customize Scroll */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #424874;
+    border-radius: 10px;
+  }
+
+  /* Handle on Hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #33385b;
+  }
+
   .title {
     @apply bg-books-800 m-2 h-4 w-20 rounded-md text-white;
   }
