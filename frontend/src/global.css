@@ -7,8 +7,21 @@
 @tailwind utilities;
 
 @layer base {
+  .body {
+    background-color: #ede7f9;
+  }
+
+  .body > h1,
+  .body > h2 {
+    color: #424874;
+  }
+
+  table {
+    @apply bg-books-400 border-separate border-spacing-2 rounded-md p-2;
+  }
+
   .title {
-    @apply m-2 h-4 w-20 rounded-md bg-alanturing-800 text-white;
+    @apply bg-books-800 m-2 h-4 w-20 rounded-md text-white;
   }
 
   td {
@@ -16,15 +29,15 @@
   }
 
   input {
-    @apply rounded-md p-1 focus:border-2 focus:border-alanturing-800 focus:outline-none;
+    @apply focus:border-books-800 rounded-md p-1 focus:border-2 focus:outline-none;
   }
 
   button {
-    @apply rounded-md px-2 py-1 text-white;
+    @apply rounded-md px-2 py-1;
   }
 
   .button {
-    @apply cursor-pointer rounded-md px-2 py-2 text-white;
+    @apply text-books-800 cursor-pointer rounded-md px-2 py-2;
   }
 
   i {
@@ -32,11 +45,12 @@
   }
 
   .button-book {
-    @apply mr-3 mt-4 w-52 bg-alanturing-800;
+    @apply bg-books-400  text-books-100 mr-3 mt-4 w-52;
+    color: black;
   }
 
   .button-book-highlighted {
-    @apply mr-3 mt-4 w-52 bg-alanturing-400;
+    @apply bg-books-800 text-books-100 mr-3 mt-4 w-52;
   }
 
   .sub-forms {
@@ -61,7 +75,7 @@
   .sub-forms > .sub-form > form > input {
     display: inline-block;
     margin-bottom: 1rem;
-    border: solid 1px #206ab2;
+    border: solid 1px #424874;
     border-radius: 10px;
   }
 }

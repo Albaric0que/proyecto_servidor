@@ -6,6 +6,7 @@ import {
   $,
   useSignal,
 } from "@builder.io/qwik";
+
 import { Book } from "~/models/Book";
 import {
   addBook,
@@ -37,15 +38,20 @@ export const BooksList = component$(() => {
   const oldIbsn = useSignal("");
 
   const showEditorialForm = useSignal(false);
-
   const showGenreForm = useSignal(false);
-
   const showAuthorForm = useSignal(false);
 
   const activeForm = useSignal("");
 
+  useTask$(async ({ track }) => {
+    console.log("Desde useTask");
+
+    track(() => store.books);
+  });
+
   useVisibleTask$(async () => {
     console.log("Desde useVisibleTask");
+
     store.books = await getBooks();
   });
 
@@ -109,10 +115,10 @@ export const BooksList = component$(() => {
   });
 
   return (
-    <div class="flex w-full justify-center">
+    <div class="body flex w-full justify-center">
       <div>
-        <div class="rounded-xl bg-alanturing-100 px-6 py-4">
-          <table class="border-separate border-spacing-2">
+        <div>
+          <table>
             <thead>
               <tr>
                 <th class="title">IBSN</th>
@@ -136,7 +142,7 @@ export const BooksList = component$(() => {
                   <td>{book.author_name}</td>
                   <td>
                     <button
-                      class="bg-red-600"
+                      class="bg-buttons-delete"
                       onClick$={() => deletebook(book.ibsn)}
                     >
                       <i class="fa-solid fa-trash"></i>
@@ -145,7 +151,7 @@ export const BooksList = component$(() => {
                   </td>
                   <td>
                     <button
-                      class="bg-orange-600"
+                      class="bg-buttons-update"
                       onClick$={() => {
                         addOrModify.value = "Modificar";
                         oldIbsn.value = book.ibsn;
@@ -210,14 +216,14 @@ export const BooksList = component$(() => {
                     />
                   </td>
                   <td>
-                    <button class="bg-green-600" type="submit">
+                    <button class="bg-buttons-create" type="submit">
                       <i class="fa-solid fa-check"></i>
                       Aceptar
                     </button>
                   </td>
                   <td>
                     <span
-                      class="button bg-red-600"
+                      class="button bg-buttons-delete"
                       style={`visibility: ${addOrModify.value === "Añadir" ? "hidden" : "visible"}`}
                       onClick$={() => {
                         addOrModify.value = "Añadir";
@@ -262,7 +268,7 @@ export const BooksList = component$(() => {
                 value={form.editorial}
                 onInput$={handleInputChange}
               />
-              <button class="bg-green-600" type="submit">
+              <button class="bg-buttons-create" type="submit">
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
@@ -296,7 +302,7 @@ export const BooksList = component$(() => {
                 value={form.genre}
                 onInput$={handleInputChange}
               />
-              <button class="bg-green-600" type="submit">
+              <button class="bg-buttons-create" type="submit">
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
@@ -330,7 +336,7 @@ export const BooksList = component$(() => {
                 value={form.author_name}
                 onInput$={handleInputChange}
               />
-              <button class="bg-green-600" type="submit">
+              <button class="bg-buttons-create" type="submit">
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
