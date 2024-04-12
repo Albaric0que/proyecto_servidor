@@ -1,6 +1,7 @@
 // Funciones de acceso a la API de usuarios.
 
 import { Book } from "~/models/Book";
+import { Subservice_book } from "~/models/Subservice_book";
 
 // Obtiene libro por IBSN
 export const getBookByIbsn = async (ibsn: string, book: Book) => {
@@ -31,7 +32,7 @@ export const getBooks = async (): Promise<Book[]> => {
 // Obtiene todos los libros por Editorial
 export const getBooksByEditorial = async (
   editorial: string,
-  editorialBooks: Book,
+  editorialBooks: Subservice_book,
 ) => {
   try {
     const response = await fetch(
@@ -47,7 +48,10 @@ export const getBooksByEditorial = async (
 };
 
 // Obtiene todos los libros por Género
-export const getBooksByGenre = async (genre: string, genreBooks: Book) => {
+export const getBooksByGenre = async (
+  genre: string,
+  genreBooks: Subservice_book,
+) => {
   try {
     const response = await fetch(`http://localhost:8000/books/genre/${genre}`);
     const genreBooks = response.json();
@@ -62,7 +66,7 @@ export const getBooksByGenre = async (genre: string, genreBooks: Book) => {
 // Obtiene todos los libros por Autor
 export const getBooksByAuthor = async (
   author_name: string,
-  authorBooks: Book,
+  authorBooks: Subservice_book,
 ) => {
   try {
     const response = await fetch(

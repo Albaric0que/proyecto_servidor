@@ -8,6 +8,7 @@ import {
 } from "@builder.io/qwik";
 
 import { Book } from "~/models/Book";
+import { Subservice_book } from "~/models/Subservice_book";
 import {
   addBook,
   deleteBookByIbsn,
@@ -33,6 +34,15 @@ export const BooksList = component$(() => {
     author_name: "",
   });
 
+  const bookParam = useStore<Subservice_book>({
+    sub_ibsn: "",
+    sub_title: "",
+    sub_published: 0,
+    sub_genre: "",
+    sub_editorial: "",
+    sub_author_name: "",
+  });
+
   const addOrModify = useSignal("Añadir");
 
   const oldIbsn = useSignal("");
@@ -42,12 +52,6 @@ export const BooksList = component$(() => {
   const showAuthorForm = useSignal(false);
 
   const activeForm = useSignal("");
-
-  useTask$(async ({ track }) => {
-    console.log("Desde useTask");
-
-    track(() => store.books);
-  });
 
   useVisibleTask$(async () => {
     console.log("Desde useVisibleTask");
@@ -67,23 +71,20 @@ export const BooksList = component$(() => {
 
   const handleFormSubmit = $(async (event: any) => {
     event.preventDefault(); // evita el comportamiento por defecto
-    console.log("¿hola?");
-    const { editorial, genre, author_name } = form;
+    const { sub_editorial, sub_genre, sub_author_name } = bookParam;
 
     let newBooks = [];
 
     if (activeForm.value === "editorial") {
-      newBooks = await getBooksByEditorial(editorial, form);
+      newBooks = await getBooksByEditorial(sub_editorial, bookParam);
     } else if (activeForm.value === "genre") {
-      newBooks = await getBooksByGenre(genre, form);
+      newBooks = await getBooksByGenre(sub_genre, bookParam);
     } else if (activeForm.value === "author_name") {
-      newBooks = await getBooksByAuthor(author_name, form);
-      console.log(store.books);
+      newBooks = await getBooksByAuthor(sub_author_name, bookParam);
     }
 
     // Actualiza el estado con los nuevos libros
     store.books = newBooks;
-    console.log(newBooks);
   });
 
   const handleInputChange = $((event: any) => {
@@ -257,22 +258,22 @@ export const BooksList = component$(() => {
               Por Editorial
             </button>
             {/* Formulario obtener libros por editorial */}
-            <form
+            <div
               style={`visibility: ${showEditorialForm.value === false ? "hidden" : "visible"}`}
-              onSubmit$={handleFormSubmit}
             >
               <input
                 type="text"
                 placeholder="Nombre de la Editorial"
                 name="editorial"
-                value={form.editorial}
+                value={bookParam.sub_editorial}
                 onInput$={handleInputChange}
               />
-              <button class="bg-buttons-create" type="submit">
+              <button class="bg-buttons-create" onClick$={handleFormSubmit}>
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
-            </form>
+            </div>
+            {bookParam.sub_editorial}
           </div>
           {/* Botón mostrar/ocultar formulario género */}
           <div class="sub-form">
@@ -291,22 +292,22 @@ export const BooksList = component$(() => {
               Por Género
             </button>
             {/* Formulario obtener libros por género */}
-            <form
+            <div
               style={`visibility: ${showGenreForm.value === false ? "hidden" : "visible"}`}
-              onSubmit$={handleFormSubmit}
             >
               <input
                 type="text"
                 placeholder="Nombre del Género"
                 name="genre"
-                value={form.genre}
+                value={bookParam.sub_genre}
                 onInput$={handleInputChange}
               />
-              <button class="bg-buttons-create" type="submit">
+              <button class="bg-buttons-create" onClick$={handleFormSubmit}>
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
-            </form>
+            </div>
+            {bookParam.sub_genre}
           </div>
           <div class="sub-form">
             <button
@@ -325,22 +326,22 @@ export const BooksList = component$(() => {
             </button>
 
             {/* Formulario obtener libros por autor */}
-            <form
+            <div
               style={`visibility: ${showAuthorForm.value === false ? "hidden" : "visible"}`}
-              onSubmit$={handleFormSubmit}
             >
               <input
                 type="text"
                 placeholder="Nombre del Autor"
                 name="author_name"
-                value={form.author_name}
+                value={bookParam.sub_author_name}
                 onInput$={handleInputChange}
               />
-              <button class="bg-buttons-create" type="submit">
+              <button class="bg-buttons-create" onClick$={handleFormSubmit}>
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
-            </form>
+            </div>
+            {bookParam.sub_author_name}
           </div>
         </div>
       </div>
