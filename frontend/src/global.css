@@ -17,7 +17,7 @@
   }
 
   table {
-    @apply bg-books-400 border-separate border-spacing-2 rounded-md p-2;
+    @apply border-separate border-spacing-2 rounded-md bg-books-400 p-2;
   }
 
   /* Scroll */
@@ -42,7 +42,7 @@
   }
 
   .title {
-    @apply bg-books-800 m-2 h-4 w-20 rounded-md text-white;
+    @apply m-2 h-4 w-20 rounded-md bg-books-800 text-white;
   }
 
   td {
@@ -50,7 +50,7 @@
   }
 
   input {
-    @apply focus:border-books-800 rounded-md p-1 focus:border-2 focus:outline-none;
+    @apply rounded-md p-1 focus:border-2 focus:border-books-800 focus:outline-none;
   }
 
   button {
@@ -58,7 +58,7 @@
   }
 
   .button {
-    @apply text-books-800 cursor-pointer rounded-md px-2 py-2;
+    @apply cursor-pointer rounded-md px-2 py-2 text-books-800;
   }
 
   i {
@@ -66,12 +66,19 @@
   }
 
   .button-book {
-    @apply bg-books-400  text-books-100 mr-3 mt-4 w-52;
+    @apply mr-3  mt-4 w-52 bg-books-400 text-books-100;
     color: black;
   }
 
   .button-book-highlighted {
-    @apply bg-books-800 text-books-100 mr-3 mt-4 w-52;
+    @apply mr-3 mt-4 w-52 bg-books-800 text-books-100;
+  }
+
+  .button-all-books {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .sub-forms {
@@ -79,23 +86,23 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
   }
 
   .sub-forms > .sub-form {
     padding: 2rem;
-    margin: 1rem;
+    margin: 0.5rem;
   }
 
-  .sub-forms > .sub-form > form {
+  .sub-forms > .sub-form > div {
     display: flex;
     flex-direction: column;
     padding: 1rem;
   }
 
-  .sub-forms > .sub-form > form > input {
+  .sub-forms > .sub-form > div > input {
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     border: solid 1px #424874;
     border-radius: 10px;
   }

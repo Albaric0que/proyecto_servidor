@@ -237,6 +237,15 @@ export const BooksList = component$(() => {
             </tbody>
           </table>
         </div>
+        <div class="button-all-books">
+          <button
+            class="button-book-highlighted"
+            onClick$={async () => (store.books = await getBooks())}
+          >
+            <i class="fa-solid fa-book-open"></i>
+            Todos
+          </button>
+        </div>
         <div class="sub-forms">
           <div class="sub-form">
             {/* Botón para mostrar/ocultar el formulario editorial */}
