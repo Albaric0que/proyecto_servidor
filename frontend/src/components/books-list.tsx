@@ -1,7 +1,6 @@
 import {
   component$,
   useStore,
-  useTask$,
   useVisibleTask$,
   $,
   useSignal,
