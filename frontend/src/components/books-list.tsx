@@ -43,12 +43,6 @@ export const BooksList = component$(() => {
 
   const activeForm = useSignal("");
 
-  useTask$(async ({ track }) => {
-    console.log("Desde useTask");
-
-    track(() => store.books);
-  });
-
   useVisibleTask$(async () => {
     console.log("Desde useVisibleTask");
 
@@ -65,9 +59,17 @@ export const BooksList = component$(() => {
     }
   });
 
+  const cleanForm = $(() => {
+    form.ibsn = "";
+    form.title = "";
+    form.published = 0;
+    form.genre = "";
+    form.editorial = "";
+    form.author_name = "";
+  });
+
   const handleFormSubmit = $(async (event: any) => {
-    event.preventDefault(); // evita el comportamiento por defecto
-    console.log("¿hola?");
+    event.preventDefault(); // Evita el comportamiento por defecto
     const { editorial, genre, author_name } = form;
 
     let newBooks = [];
@@ -78,12 +80,18 @@ export const BooksList = component$(() => {
       newBooks = await getBooksByGenre(genre, form);
     } else if (activeForm.value === "author_name") {
       newBooks = await getBooksByAuthor(author_name, form);
-      console.log(store.books);
     }
 
     // Actualiza el estado con los nuevos libros
     store.books = newBooks;
-    console.log(newBooks);
+
+    //Limpia el input
+    cleanForm();
+
+    // Ocultar input
+    showEditorialForm.value = false;
+    showGenreForm.value = false;
+    showAuthorForm.value = false;
   });
 
   const handleInputChange = $((event: any) => {
@@ -98,15 +106,6 @@ export const BooksList = component$(() => {
     form.genre = book.genre;
     form.editorial = book.editorial;
     form.author_name = book.author_name;
-  });
-
-  const cleanForm = $(() => {
-    form.ibsn = "";
-    form.title = "";
-    form.published = 0;
-    form.genre = "";
-    form.editorial = "";
-    form.author_name = "";
   });
 
   const deletebook = $(async (ibsn: string) => {
@@ -257,9 +256,8 @@ export const BooksList = component$(() => {
               Por Editorial
             </button>
             {/* Formulario obtener libros por editorial */}
-            <form
+            <div
               style={`visibility: ${showEditorialForm.value === false ? "hidden" : "visible"}`}
-              onSubmit$={handleFormSubmit}
             >
               <input
                 type="text"
@@ -268,11 +266,11 @@ export const BooksList = component$(() => {
                 value={form.editorial}
                 onInput$={handleInputChange}
               />
-              <button class="bg-buttons-create" type="submit">
+              <button class="bg-buttons-create" onClick$={handleFormSubmit}>
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
-            </form>
+            </div>
           </div>
           {/* Botón mostrar/ocultar formulario género */}
           <div class="sub-form">
@@ -291,9 +289,8 @@ export const BooksList = component$(() => {
               Por Género
             </button>
             {/* Formulario obtener libros por género */}
-            <form
+            <div
               style={`visibility: ${showGenreForm.value === false ? "hidden" : "visible"}`}
-              onSubmit$={handleFormSubmit}
             >
               <input
                 type="text"
@@ -302,11 +299,11 @@ export const BooksList = component$(() => {
                 value={form.genre}
                 onInput$={handleInputChange}
               />
-              <button class="bg-buttons-create" type="submit">
+              <button class="bg-buttons-create" onClick$={handleFormSubmit}>
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
-            </form>
+            </div>
           </div>
           <div class="sub-form">
             <button
@@ -325,9 +322,8 @@ export const BooksList = component$(() => {
             </button>
 
             {/* Formulario obtener libros por autor */}
-            <form
+            <div
               style={`visibility: ${showAuthorForm.value === false ? "hidden" : "visible"}`}
-              onSubmit$={handleFormSubmit}
             >
               <input
                 type="text"
@@ -336,11 +332,11 @@ export const BooksList = component$(() => {
                 value={form.author_name}
                 onInput$={handleInputChange}
               />
-              <button class="bg-buttons-create" type="submit">
+              <button class="bg-buttons-create" onClick$={handleFormSubmit}>
                 <i class="fa-solid fa-check"></i>
                 Aceptar
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
