@@ -2,7 +2,7 @@
 
 <h2>1. Project description:</h2>
   <ul>
-    <li>An app that manages a personal and private books collection</li>
+    <li>An app that manages a personal and private book collection</li>
     <li>It must have a list of all books containing their ISBN, Title, Publicaton Date, Genre, Editorial and Author Name</li>
     <li>The only user (the books owner) must be able to create a new book, update an existing one, and delete any of them</li>
     <li>The user must be able to filter books by genre, editorial, and author</li>
