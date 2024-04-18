@@ -16,17 +16,17 @@
   
   <h2> 3- Project Demo</h2> 
 
-  <div style="heigth:auto; display:flex; flex-wrap: wrap; justify-content:center; padding:2rem">
-    <h3>CREAR</h3>
-    <img style="width:600px"; src="./frontend/public/gifs/crear.gif" alt="Crear"/>
+  <div style="heigth:auto; display:flex; padding:5rem;">
+    <h3 style="align-self: center;">CREAR</h3>
+    <img style="width:1000px"; src="./frontend/public/gifs/crear.gif" alt="Crear"/>
     <h3>MODIFICAR</h3>
-    <img style="width:600px"; src="./frontend/public/gifs/modificar.gif" alt="Modificar"/>
+    <img style="width:1000px"; src="./frontend/public/gifs/modificar.gif" alt="Modificar"/>
     <h3>BORRAR</h3>
-    <img style="width:600px"; src="./frontend/public/gifs/borrar.gif" alt="Borrar"/>
+    <img style="width:1000px"; src="./frontend/public/gifs/borrar.gif" alt="Borrar"/>
     <h3>FILTRAR POR EDITORIAL</h3>
-    <img style="width:600px"; src="./frontend/public/gifs/editorial.gif" alt="Filtrar por Editorial"/>
+    <img style="width:1000px"; src="./frontend/public/gifs/editorial.gif" alt="Filtrar por Editorial"/>
     <h3>FILTRAR POR GÉNERO Y AUTOR</h3>
-    <img style="width:600px"; src="./frontend/public/gifs/genero-autor.gif" alt="Filtrar por Género y Autor"/>
+    <img style="width:1000px"; src="./frontend/public/gifs/genero-autor.gif" alt="Filtrar por Género y Autor"/>
   </div>
 
 <h2> 4- Stacks</h2>
