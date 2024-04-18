@@ -18,11 +18,11 @@
   <p>In construction 👩🏼‍🔧</p>
 
   <div style="heigth:auto; display:flex; flex-wrap: wrap; justify-content:center; padding:1rem">
-    <img style="width:200px"; src="frontend/public/crear.gif" alt="Crear"/>
-    <img style="width:200px"; src="frontend/public/modificar.gif" alt="Modificar"/>
-    <img style="width:200px"; src="frontend/public/borrar.gif" alt="Borrar"/>
-    <img style="width:200px"; src="frontend/public/editorial.gif" alt="Filtrar por Editorial"/>
-    <img style="width:200px"; src="frontend/public/genero-autor.gif" alt="Filtrar por Género y Autor"/>
+    <img style="width:500px"; src="./frontend/public/gifs/crear.gif" alt="Crear"/>
+    <img style="width:500px"; src="./frontend/public/gifs/modificar.gif" alt="Modificar"/>
+    <img style="width:500px"; src="./frontend/public/gifs/borrar.gif" alt="Borrar"/>
+    <img style="width:500px"; src="./frontend/public/gifs/editorial.gif" alt="Filtrar por Editorial"/>
+    <img style="width:500px"; src="./frontend/public/gifs/genero-autor.gif" alt="Filtrar por Género y Autor"/>
   </div>
 
 <h2> 4- Stacks</h2>
