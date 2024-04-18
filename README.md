@@ -44,6 +44,7 @@
   <ul>
     <li>HTML5</li>
     <li>CSS3</li>
+    <li>TYPESCRIPT</li>
     <li>QWIK</li>
     <li>TAILWINDS</li>
   </ul> 
