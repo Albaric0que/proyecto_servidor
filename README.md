@@ -33,10 +33,11 @@
   <p>In construction 👩🏼‍🔧</p>
 
   <div style="heigth:auto; display:flex; flex-wrap: wrap; justify-content:center; padding:1rem">
-    <img style="width:200px"; src="#" alt=""/>
-    <img style="width:200px"; src="#" alt=""/>
-    <img style="width:200px"; src="#" alt=""/>
-    <img style="width:200px"; src="#" alt=""/>
+    <img style="width:200px"; src="crear.gif" alt="Crear"/>
+    <img style="width:200px"; src="modificar.gif" alt="Modificar"/>
+    <img style="width:200px"; src="borrar.gif" alt="Borrar"/>
+    <img style="width:200px"; src="editorial.gif" alt="Filtrar por Editorial"/>
+    <img style="width:200px"; src="genero-autor.gif" alt="Filtrar por Género y Autor"/>
   </div>
 
 <h2> 5- Stacks</h2>
