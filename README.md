@@ -1,6 +1,6 @@
 <h1 align="center">Mi APP DE LIBROS</h1>
 
-<h2>1. Project description:</h2>
+<h2> 1- Project description:</h2>
   <ul>
     <li>An app that manages a personal and private book collection</li>
     <li>It must have a list of all books containing their ISBN, Title, Publicaton Date, Genre, Editorial and Author Name</li>
@@ -8,23 +8,14 @@
     <li>The user must be able to filter books by genre, editorial, and author</li>
   </ul>
 
-## 2. Developer
+## 2- Developer
 
   ### Yours trully:
   
    [Alba Rus](https://github.com/Albaric0que)
   
-  <h2>4. Project Demo</h2>
-  <p>In construction 👩🏼‍🔧</p>
 
-<div style="heigth:auto; display:flex; flex-wrap: wrap; justify-content:center; padding:1rem">
-  <img style="width:200px"; src="#" alt=""/>
-  <img style="width:200px"; src="#" alt=""/>
-  <img style="width:200px"; src="#" alt=""/>
-  <img style="width:200px"; src="#" alt=""/>
-</div>
-
-<h2>3. Sketch</h2>
+<h2> 3- Sketch</h2>
 <p>In construction 👩🏼‍🔧</p>
 
   <h3 align="center">Sketch Desktop</h3>
@@ -38,7 +29,17 @@
     <img style="width:100px"; src="#" alt=""/>
   </div>
 
-<h2>4. Stacks</h2>
+  <h2> 4- Project Demo</h2> 
+  <p>In construction 👩🏼‍🔧</p>
+
+  <div style="heigth:auto; display:flex; flex-wrap: wrap; justify-content:center; padding:1rem">
+    <img style="width:200px"; src="#" alt=""/>
+    <img style="width:200px"; src="#" alt=""/>
+    <img style="width:200px"; src="#" alt=""/>
+    <img style="width:200px"; src="#" alt=""/>
+  </div>
+
+<h2> 5- Stacks</h2>
 
 * **Frontend:**
   <ul>
@@ -62,7 +63,7 @@
     <li>GIT</li>
   </ul>
 
-<h2>To install this project</h2>
+<h2> 6- To install this project</h2>
   <li>You will need to install DOCKER in your computer</li>
   <li>Open your Terminal and go to a direrctory of your choice</li>
   <li>Run <b>git clone</b> https://github.com/Albaric0que/proyecto_servidor.git</li>
@@ -71,7 +72,7 @@
   <li>Open a tab in your browser and go to localhost:5173. You will visualize the app there</li>
   <li>Qwik is a JavaScript framework that natively renders HTML server-side (SSR) to optimize performance </li>
 
-<h2>11. Next Steps</h2>
+<h2> 7- Next Steps</h2>
 <ul>
   <li>Improving styles and user experience</li>
   <li>
