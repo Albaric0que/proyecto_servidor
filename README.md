@@ -56,7 +56,13 @@
 <h2> 5- To install this project</h2>
   <li>You will need to install DOCKER in your computer</li>
   <li>Open your Terminal and go to a direrctory of your choice</li>
-  <li>Run <b>git clone</b> https://github.com/Albaric0que/proyecto_servidor.git</li>
+  <li>
+    To clone the project, run:
+    
+  ```bash  
+   git clone https://github.com/Albaric0que/proyecto_servidor.git
+  ```  
+  </li>
   <li>Once the project is cloned, navigate to the directory that contains the docker-compose.yml file and open your terminal</li>
   <li>Iniciate Docker with the comand docker-compose up</li>
   <li>Open a tab in your browser and go to localhost:5173. You will visualize the app there</li>
